@@ -36,13 +36,13 @@
 
 # Motivation
 
-When running "show techsupport" it includes "show version" output, but we don't provide the system date which is necessary for debug process. 
+Execute "show techsupport" provides system logs but it doesnt contain the current date when the command is issued. Since "show version" is taken when running "show techsupport" command, adding "Date" attribute to "show version" command will assist with having the reference date. 
 
 
 
 # About this Manual
 
-This document provides an overview of the implementation to add a new "date" attribute which provides the <u>current</u> date on the switch on the "show version" CLI command.
+This document provides an overview of the implementation to add a new "date" attribute which provides the <u>current</u> date of the switch when running the "show version" CLI command.
 
 
 
