@@ -1,6 +1,4 @@
-# Switch Date On "Show Version" CLI Command
-
-# High-Level Design Document
+# HLD document to add date to "show version" CLI 
 
 
 
@@ -8,21 +6,23 @@
 
 
 
-# Table of Contents - TODO Update
+# Table of Contents
 
--[List of Figures](#list-of-figures)
+​	-[List of Figures](#list-of-figures)
 
--[Revision](#revision)
+​	-[Revision](#revision)
 
--[Motivation](#motivation)
+​	-[Motivation](#motivation)
 
--[About this Manual](#about-this-manual)
+​	-[About this Manual](#about-this-manual)
 
--[Design](#design)
+​	-[Design](#design)
 
--[CLI](#cli)
+​	-[CLI](#cli)
 
--[Flow](#flow)
+​	-[Flow](#flow)
+
+​	-[Tests](#tests)
 
 # List of Figures
 * [flow diagram](#9-Flow)
@@ -36,17 +36,17 @@
 
 # Motivation
 
-The date of the system is a key for debug process. Nowadays, SONiC does not provide a date in the techsupport, which makes the debug process be more difficult. 
+When running "show techsupport" it includes "show version" output, but we don't provide the system date which is necessary for debug process. 
 
 
 
 # About this Manual
 
-This document provides an overview of the implementation to add a new row which provides the <u>current</u> date on the switch on the 'show version' CLI command.
+This document provides an overview of the implementation to add a new "date" attribute which provides the <u>current</u> date on the switch on the "show version" CLI command.
 
 
 
-before:
+**<u>Before:</u>**
 
 ```
 admin@sonic:~$ show version
@@ -67,7 +67,7 @@ Hardware Rev: A1
 Uptime: 14:40:15 up 3 min,  1 user,  load average: 1.26, 1.45, 0.66
 ```
 
-after:
+**<u>After:</u>**
 
 ```
 admin@sonic:~$ show version
@@ -93,15 +93,13 @@ Date: Tue 22 Feb 2022
 
 # Design
 
-In sonic-utilities, in the "version" subcommand, print of the current date will be added using date from the datetime library.
+In sonic-utilities, in the "version" subcommand, print of the current date will be added using "date" from the "datetime" library.
 
+sonic-utilities/show/main.py
 
+Added the marked lines:
 
-# Build and runtime dependencies---??? not sure about this
-
-To get the current date on the switch, we import the date from the datetime library.
-
-
+![](code.png)
 
 # CLI
 
@@ -135,3 +133,9 @@ Date: Tue 22 Feb 2022
 # Flow
 
 ![](flow.drawio.png)
+
+
+
+# Tests
+
+For now, it seems that the verification tests and unit tests are not influenced by the add date feature.
