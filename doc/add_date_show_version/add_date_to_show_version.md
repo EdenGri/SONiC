@@ -10,7 +10,7 @@
 
 # 1 Table of Contents - TODO Update
 
-[toc]
+[[_TOC_]]
 
 # 2 List of Figures
 * [flow diagram](#9-Flow)
