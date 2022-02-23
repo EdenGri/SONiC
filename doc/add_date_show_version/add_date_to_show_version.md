@@ -8,27 +8,39 @@
 
 
 
-# 1 Table of Contents - TODO Update
+# Table of Contents - TODO Update
 
-[[_TOC_]]
+-[List of Figures](#list-of-figures)
 
-# 2 List of Figures
+-[Revision](#revision)
+
+-[Motivation](#motivation)
+
+-[About this Manual](#about-this-manual)
+
+-[Design](#design)
+
+-[CLI](#cli)
+
+-[Flow](#flow)
+
+# List of Figures
 * [flow diagram](#9-Flow)
 
-# 3 Revision
+# Revision
 | Rev  |   Date   |    Author    | Change Description |
 | :--: | :------: | :----------: | ------------------ |
 | 0.1  | 02/22/22 | Eden Grisaro | Initial version    |
 
 
 
-# 4 Motivation
+# Motivation
 
 The date of the system is a key for debug process. Nowadays, SONiC does not provide a date in the techsupport, which makes the debug process be more difficult. 
 
 
 
-# 5 About this Manual
+# About this Manual
 
 This document provides an overview of the implementation to add a new row which provides the <u>current</u> date on the switch on the 'show version' CLI command.
 
@@ -79,19 +91,19 @@ Date: Tue 22 Feb 2022
 
 
 
-# 6 Design
+# Design
 
 In sonic-utilities, in the "version" subcommand, print of the current date will be added using date from the datetime library.
 
 
 
-# 7 Build and runtime dependencies---??? not sure about this
+# Build and runtime dependencies---??? not sure about this
 
 To get the current date on the switch, we import the date from the datetime library.
 
 
 
-# 8 CLI
+# CLI
 
 This command displays the "show version" output and in addition, the current date in a new row. 
 
@@ -120,6 +132,6 @@ Uptime: 14:40:15 up 3 min,  1 user,  load average: 1.26, 1.45, 0.66
 Date: Tue 22 Feb 2022
 ```
 
-# 9 Flow
+# Flow
 
 ![](flow.drawio.png)
