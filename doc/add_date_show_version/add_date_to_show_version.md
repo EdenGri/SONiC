@@ -122,4 +122,4 @@ Date: Tue 22 Feb 2022
 
 # 9 Flow
 
-![](C:\code\SONiC\doc\show version addDate temp\flow.drawio.png)
+![](/builds2/egrisaro/sonic/sonic_md/SONiC/doc/add_date_show_version)
