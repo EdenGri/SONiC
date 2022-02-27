@@ -65,6 +65,7 @@ Serial Number: MT1822K07815
 Model Number: MSN2700-CS2FO
 Hardware Rev: A1
 Uptime: 14:40:15 up 3 min,  1 user,  load average: 1.26, 1.45, 0.66
+...
 ```
 
 **<u>After:</u>**
@@ -85,21 +86,23 @@ ASIC Count: 1
 Serial Number: MT1822K07815
 Model Number: MSN2700-CS2FO
 Hardware Rev: A1
-Uptime: 14:40:15 up 3 min,  1 user,  load average: 1.26, 1.45, 0.66
-Date: Tue 22 Feb 2022
+Uptime: up 3 min,  1 user,  load average: 1.26, 1.45, 0.66
+Date: Tue 22 Feb 2022 14:40:15
+...
 ```
 
 
 
 # Design
 
-In sonic-utilities, in the "version" subcommand, print of the current date will be added using "date" from the "datetime" library.
-
-sonic-utilities/show/main.py
+In sonic-utilities/show/main.py, in the "version" subcommand:
+1. print of the current date will be added using "datetime" from the "datetime" library.
+2. The current time, 1st entry of the uptime attribute will be remove.  
 
 Added the marked lines:
 
-![](code.png)
+![](show_version.png)
+![](get_uptime.png)
 
 # CLI
 
@@ -126,8 +129,9 @@ ASIC Count: 1
 Serial Number: MT1822K07815
 Model Number: MSN2700-CS2FO
 Hardware Rev: A1
-Uptime: 14:40:15 up 3 min,  1 user,  load average: 1.26, 1.45, 0.66
-Date: Tue 22 Feb 2022
+Uptime: up 3 min,  1 user,  load average: 1.26, 1.45, 0.66
+Date: Tue 22 Feb 2022 14:40:15
+...
 ```
 
 # Flow
