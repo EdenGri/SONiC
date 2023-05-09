@@ -145,8 +145,8 @@ The following interface allready has unit test case that check configuration of 
 ### Subinterface
 In the test "test_invalid_subintf_creation" we already has test case with a too long name ("Ethernet1000.102) that except to fail.
 
-interface | file path | test name | need to add test? |
---- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
+interface | file path | test name | need to add test? 
+--------- | --------- | --------- | ----------------- 
 Vxlan | sonic-utilities/tests/vxlan_test.py | test_config_vxlan_add |yes | 
 Vlan | sonic-utilities/tests/vlan_test.py | test_config_vlan_add_member_with_invalid_vlanid | yes |
 Vrf | sonic-utilities/tests/vrf_test.py | test_invalid_vrf_name | yes | 
@@ -171,7 +171,7 @@ The following interface already has a Yang test that check configuration of inte
 ### Portchannel
 
 interface | file path | need to add validation? |
---- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
+--------- | --------- | ----------------------- |
 Vxlan | sonic-yang-models/tests/yang_models_tests/tests/vxlan.json <br /> sonic-yang-models/tests/yang_models_tests/config_tests/vxlan.json | yes | 
 Vlan | sonic-yang-models/tests/yang_models_tests/tests/vlan.json <br /> sonic-yang-models/tests/yang_models_tests/config_tests/vlan.json | yes |
 Vrf | sonic-yang-models/tests/yang_models_tests/tests/vrf.json <br /> sonic-yang-models/tests/yang_models_tests/config_tests/vrf.json | yes | 
