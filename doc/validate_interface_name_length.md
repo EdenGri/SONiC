@@ -84,7 +84,7 @@ The user can configure portchannel via CLI command, for example: "sudo config po
 
 
 interface | file path | function name | need to add validation? | example for CLI command |
---- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
+--------- | --------- | ------------- | ----------------------- |------------------------ |
 Vxlan | sonic-utilities/config/vxlan.py | add_vxlan | yes | "config vxlan map add neighbor_adv 10 1"
 Vlan | sonic-utilities/config/vlan.py | add_vlan | no | "config vlan add 100"
 Vrf | sonic-utilities/config/main.py | add_vrf | no | "config vrf add Vrf100"
