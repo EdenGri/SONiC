@@ -117,7 +117,7 @@ In the sonic-yang-models/yang-models/sonic-portchannel.yang we have validation t
 
 
 interface | file path | need to add validation? |
---- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
+--------- | --------- | ----------------------- | 
 Vxlan | sonic-yang-models/yang-models/sonic-vxlan.yang | yes | 
 Vlan | sonic-yang-models/yang-models/sonic-vlan.yang | no |
 Vrf | sonic-yang-models/yang-models/sonic-vrf.yang | no | 
