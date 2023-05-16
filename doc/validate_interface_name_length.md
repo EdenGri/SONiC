@@ -22,7 +22,7 @@
 # Revision
 | Rev  |   Date   |    Author    | Change Description |
 | :--: | :------: | :----------: | ------------------ |
-| 0.1  | 10/05/23 | Eden Grisaro | Initial version    |
+| 0.1  | 17/05/23 | Eden Grisaro | Initial version    |
 
 
 
