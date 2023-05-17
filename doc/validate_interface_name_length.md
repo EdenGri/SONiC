@@ -17,6 +17,10 @@
 ​	-[Design](#design)
 
 ​	-[Tests](#tests)
+   
+   -[Documentation](#documentation)
+
+
 
 
 # Revision
@@ -57,14 +61,15 @@ The following interfaces don't have validation of the interface name in their CL
 The user can configure Vxlan via CLI command, for example: "config vxlan map add neighbor_adv 10 1". We will add a limitation in the CLI command that the vxlan_name length will not be greater than `IFNAMSIZ`. The validation will be added to the sonic-utilities/config/vxlan.py file in the "add_vxlan" function.
 ```python
 if len(vxlan_name) > IFNAMSIZ:
-        ctx.fail("'vxlan_name' is too long! The 'vxlan_name' length needs to be less than 16 characters")
+        ctx.fail("'vxlan_name' is too long! The 'vxlan_name' length needs to be less than {} characters".format(IFNAMSIZ))
+
 ```
 
 ### Subinterface
 The user can configure Subinterface via CLI command, for example: "sudo config subinterface add Ethernet0.100". We will add a limitation in the CLI command that the subinterface_name length will not be greater than `IFNAMSIZ`. The validation will be added to the sonic-utilities/config/main.py file in the "add_subinterface" function.
 ```python
 if len(subinterface_name) > IFNAMSIZ:
-        ctx.fail("'subinterface_name' is too long! The 'subinterface_name' length needs to be less than 16 characters")
+        ctx.fail("'subinterface_name' is too long! The 'subinterface_name' length needs to be less than {} characters".format(IFNAMSIZ))
 ```
 
 The following interface already has validation and we don't need to add additional check:
@@ -130,7 +135,7 @@ The following interfaces don't have unit test cases that verify the interface na
 We will add a test case to the "test_config_vxlan_add" that will try to configure vxlan with a name that exceed the allowed length, and it will expect to fail.
 
 ### Vlan
-We will add a test case to the "test_config_vlan_add_member_with_invalid_vlanid" that will try to configure vlan with a name that exceed the allowed length, and it will expect to fail.
+We will add a test case to the "test_config_vlan_add_member_with_too_long_vlan_name" that will try to configure vlan with a name that exceed the allowed length, and it will expect to fail.
 
 ### Vrf
 We will add a test case to the "test_invalid_vrf_name" that will try to configure vrf with a name that exceed the allowed length, and it will expect to fail.
@@ -146,7 +151,7 @@ In the test "test_invalid_subintf_creation" we already has test case with a name
 interface | file path | test name | need to add test?</br>yes - currently doesn't have test implemented</br>no - currently have test implemented 
 --------- | --------- | --------- | ----------------- 
 Vxlan | sonic-utilities/tests/vxlan_test.py | test_config_vxlan_add |yes | 
-Vlan | sonic-utilities/tests/vlan_test.py | test_config_vlan_add_member_with_invalid_vlanid | yes |
+Vlan | sonic-utilities/tests/vlan_test.py | test_config_vlan_add_member_with_too_long_vlan_name | yes |
 Vrf | sonic-utilities/tests/vrf_test.py | test_invalid_vrf_name | yes | 
 Loopback | sonic-utilities/tests/config_test.py | test_add_loopback_with_invalid_name_adhoc_validation | yes |
 Subinterface | sonic-utilities/tests/subintf_test.py | test_invalid_subintf_creation | no | 
@@ -176,3 +181,6 @@ Vrf | sonic-yang-models/tests/yang_models_tests/tests/vrf.json <br /> sonic-yang
 Loopback | sonic-yang-models/tests/yang_models_tests/tests/loopback.json <br /> sonic-yang-models/tests/yang_models_tests/config_tests/loopback.json | yes |
 Subinterface | sonic-yang-models/tests/yang_models_tests/tests/vlan_sub_interface.json <br /> sonic-yang-models/tests/yang_models_tests/config_tests/vlan_sub_interface.json | no | 
 Portchannel | sonic-yang-models/tests/yang_models_tests/tests/portchannel.json <br /> sonic-yang-models/tests/yang_models_tests/config_tests/portchannel.json | no |
+
+# Documentation
+We will update the user manual and add the name length limitation.
