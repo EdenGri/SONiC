@@ -69,13 +69,13 @@ if len(subinterface_name) > IFNAMSIZ:
 
 The following interface already has validation and we don't need to add additional check:
 ### Vlan
-The user can configure vlan via CLI command, for example: "config vlan add 100". Valid vlan name is "Vlan"+{vid}. There is a limitation in the CLI command that the vid will not be greater than 4094. This limitation promises us the vlan name max length is 8 characters and therefore will not cross the 'IFNAMSIZ'. (You can find the length validation in the file sonic-utilities/config/vlan.py in the "add_vlan" function).
+The user can configure vlan via CLI command, for example: "config vlan add 100". Valid vlan name is "Vlan"+{vid}. There is a limitation in the CLI command that the vid will not be greater than 4094. This limitation promises us the vlan name max length is 8 characters and therefore will not cross the 'IFNAMSIZ' which is 16. (You can find the length validation in the file sonic-utilities/config/vlan.py in the "add_vlan" function).
 
 ### Vrf
-The user can configure vrf via CLI command, for example: "config vrf add Vrf100". Valid vrf name must begin with 'Vrf' or named 'mgmt'/'management' in case of ManagementVRF. There is a limitation in the CLI command that the vrf name length will be less than 16. This limitation promises us the vlan name length will not cross the `IFNAMSIZ`. (You can find the length validation in the file sonic-utilities/config/main.py in the "add_vrf" function).
+The user can configure vrf via CLI command, for example: "config vrf add Vrf100". Valid vrf name must begin with 'Vrf' or named 'mgmt'/'management' in case of ManagementVRF. There is a limitation in the CLI command that the vrf name length will be less than 16. This limitation promises us the vlan name length will not cross the `IFNAMSIZ` which is 16 by definition. (You can find the length validation in the file sonic-utilities/config/main.py in the "add_vrf" function).
 
 ### Loopback
-The user can configure loopback via CLI command, for example: "sudo config loopback add Loopback11". There is a limitation in the CLI command that the loopback name length will be less than 11. This limitation promises us the vlan name length will not cross the `IFNAMSIZ`. (You can find the length validation in the file sonic-utilities/config/main.py in the "is_loopback_name_valid" function).
+The user can configure loopback via CLI command, for example: "sudo config loopback add Loopback11". There is a limitation in the CLI command that the loopback name length will be less than 11. This limitation promises us the vlan name length will not cross the `IFNAMSIZ`(16). (You can find the length validation in the file sonic-utilities/config/main.py in the "is_loopback_name_valid" function).
 
 ### Portchannel
 
