@@ -60,7 +60,7 @@ The following interfaces don't have validation of the interface name in their CL
 ### Vxlan
 The user can configure Vxlan via CLI command, for example: "config vxlan map add neighbor_adv 10 1". We will add a limitation in the CLI command that the vxlan_name length will not be greater than `IFNAMSIZ`. The validation will be added to the sonic-utilities/config/vxlan.py file in the "add_vxlan" function.
 ```python
-if len(vxlan_name) > IFNAMSIZ:
+if len(vxlan_name) >= IFNAMSIZ:
         ctx.fail("'vxlan_name' is too long! The 'vxlan_name' length needs to be less than {} characters".format(IFNAMSIZ))
 
 ```
@@ -68,7 +68,7 @@ if len(vxlan_name) > IFNAMSIZ:
 ### Subinterface
 The user can configure Subinterface via CLI command, for example: "sudo config subinterface add Ethernet0.100". We will add a limitation in the CLI command that the subinterface_name length will not be greater than `IFNAMSIZ`. The validation will be added to the sonic-utilities/config/main.py file in the "add_subinterface" function.
 ```python
-if len(subinterface_name) > IFNAMSIZ:
+if len(subinterface_name) >= IFNAMSIZ:
         ctx.fail("'subinterface_name' is too long! The 'subinterface_name' length needs to be less than {} characters".format(IFNAMSIZ))
 ```
 
